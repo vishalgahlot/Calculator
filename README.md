@@ -9,5 +9,5 @@ go to the directory where your file is saved use this cmd in command prompt::---
 2) java mainclassname
 Always remember you can put different filename n mainclass name but u've to aware in above steps that what the name you have put in class n filename.
 After that we made the jar file by using cmd:----> jar cfm filename.jar manifest.txt filename.class
-
+Download the jar file :----> http://www.mediafire.com/download/g3x45mwdd2ldk44/Calc.jar
 if any problem occur feel free to ask.... :)
