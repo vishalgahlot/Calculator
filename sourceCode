@@ -1,0 +1,196 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+public class Calc implements ActionListener
+{
+	JButton b[]=new JButton[16];
+	String str[]={"1","2","3","4","5","6","7","8","9","0","+","-","*","/","=","."};
+	int a,b1,c;
+	JFrame j;
+	JButton pow;
+	JLabel l;
+	JTextField tf;
+	String button;
+	//JMenuBar mb;
+	Calc()
+	{
+		j=new JFrame("Calculator");
+		j.setVisible(true);
+		j.setDefaultCloseOperation(3);
+		j.setSize(700,700);
+		j.setLocation(50,50);
+		j.setLayout(null);
+		l=new JLabel("POWER");
+		l.setForeground(Color.blue);
+		l.setFont(new Font("Lucia Handwritting",Font.BOLD,16));
+		l.setBounds(190,100,80,60);
+		j.add(l);
+		pow=new JButton("On");
+		pow.addActionListener(this);
+		pow.setBounds(190,150,70,30);
+		j.add(pow);
+		tf=new JTextField();
+		tf.setBounds(140,190,170,30);
+		j.add(tf);
+		int x=50,y=200,l=80,h=20;
+		for(int i=0;i<str.length;i++)
+		{
+			b[i]=new JButton(str[i]);
+			if(i%4==0)
+			{
+				x=50;
+				y=y+h+10;
+			}
+			b[i].setBounds(x,y,l,h);
+			b[i].addActionListener(this);
+			b[i].setEnabled(false);
+			b[i].setToolTipText(str[i]);
+			x=x+l+10;
+			j.add(b[i]);
+		}
+		
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		if(ae.getSource()==pow)
+		{
+			if(pow.getText().equals("On"))
+			{
+				pow.setText("Off");
+				tf.setText("");
+				for(int i=0;i<str.length;i++)
+				{
+					b[i].setEnabled(true);
+					}
+				}
+			else
+			if(pow.getText().equals("Off"))
+			{
+				pow.setText("On");
+				tf.setText("");
+				for(int i=0;i<str.length;i++)
+				{
+					b[i].setEnabled(false);
+				}
+			}
+		}
+		else
+		if(ae.getSource()==b[0])
+			{
+				tf.setText(tf.getText()+"1");
+			}
+		else
+		if(ae.getSource()==b[1])
+			{
+				tf.setText(tf.getText()+"2");
+			}
+		else
+		if(ae.getSource()==b[2])
+			{
+				tf.setText(tf.getText()+"3");
+			}
+		else
+		if(ae.getSource()==b[3])
+			{
+				tf.setText(tf.getText()+"4");
+			}
+		else
+		if(ae.getSource()==b[4])
+			{
+				tf.setText(tf.getText()+"5");
+			}
+		else
+		if(ae.getSource()==b[5])
+			{
+				tf.setText(tf.getText()+"6");
+			}
+		else
+		if(ae.getSource()==b[6])
+			{
+				tf.setText(tf.getText()+"7");
+			}
+		else
+		if(ae.getSource()==b[7])
+			{
+				tf.setText(tf.getText()+"8");
+			}
+		else
+		if(ae.getSource()==b[8])
+			{
+				tf.setText(tf.getText()+"9");
+			}
+		else
+		if(ae.getSource()==b[9])
+			{
+				tf.setText(tf.getText()+"0");
+			}
+		
+		else 
+		if(ae.getSource()==b[10])
+		{
+			a=Integer.valueOf(tf.getText());
+			tf.setText("");
+			button="plus";
+			//int b=Integer.valueOf(tf.getText());
+			
+		//	c=a+b;
+			//System.out.println(c);
+		}
+		else
+		if(ae.getSource()==b[11])
+		{
+			a=Integer.valueOf(tf.getText());
+			tf.setText("");
+			button="minus";
+			
+		}
+		if(ae.getSource()==b[12])
+		{
+			a=Integer.valueOf(tf.getText());
+			tf.setText("");
+			button="multi";
+			//tf.setText(Integer.toString(c));
+		}
+		else
+		if(ae.getSource()==b[13])
+		{
+			a=Integer.valueOf(tf.getText());
+			tf.setText("");
+			button="div";
+			
+			//tf.setText(Integer.toString(c));
+		}
+		else
+		if(ae.getSource()==b[14])
+		{
+			b1=Integer.valueOf(tf.getText());
+			if(button=="plus")
+			{
+			c=a+b1;
+			tf.setText(Integer.toString(c));
+			}
+			if(button=="minus")
+			{
+			c=a-b1;
+			tf.setText(Integer.toString(c));
+			}
+			if(button=="multi")
+			{
+			c=a*b1;
+			tf.setText(Integer.toString(c));
+			}
+			if(button=="div")
+			{
+			float d=a/b1;
+			tf.setText(Float.toString(d));
+			}
+		}
+		
+	}
+		
+	public static void main(String gh[])throws Exception	
+	{
+		Calc m=new Calc();
+		
+	}
+}
