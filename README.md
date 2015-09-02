@@ -1,5 +1,5 @@
 # Calculator
-Calculator in java with IFrame
+Calculator in java with JFrame
 In this we use Iframe for making layout that is UI
 n use some basic  coding to implement it.
 
